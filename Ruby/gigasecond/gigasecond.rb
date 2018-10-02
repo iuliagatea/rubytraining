@@ -1,6 +1,6 @@
 class Gigasecond
-	def self.from(datetime)
+  def self.from(datetime)
     raise ArgumentError.new("Please insert valid datetime") unless datetime.is_a?(Time)
-		datetime + 1000000000
-	end
+    datetime + 10**9
+  end
 end
