@@ -92,4 +92,11 @@ class RaindropsTest < Minitest::Test
     # skip
     assert_equal "Plang", Raindrops.convert(3125)
   end
+
+  def test_dna_sequence
+    # skip
+    assert_raises(ArgumentError) do
+      Raindrops.convert('test4')
+    end
+  end
 end
