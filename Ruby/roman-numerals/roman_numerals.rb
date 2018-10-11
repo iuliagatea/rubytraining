@@ -22,9 +22,7 @@ class Roman
   attr_reader :number
 
   def number_is_valid?
-    unless (1..3999).cover? number
-      raise ArgumentError, 'Number must be between 1 and 3999'
-    end
+    raise ArgumentError, 'Number must be between 1 and 3999' unless number.between?(1, 3999)
   end
 end
 
