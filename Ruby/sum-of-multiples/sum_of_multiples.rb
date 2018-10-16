@@ -5,9 +5,9 @@ class SumOfMultiples
   end
 
   def to(number)
-    divisors.map do |divisor|
-      1.upto(number - 1).select { |num| num % divisor == 0 }
-    end.flatten.uniq.inject(0, :+)
+    1.upto(number - 1).select do |num|
+      divisors.any? { |divisor| num % divisor == 0}
+    end.inject(0, :+)
   end
 
   private
