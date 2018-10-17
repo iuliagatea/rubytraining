@@ -1,19 +1,18 @@
 class Bst
 
-  attr_reader :data
-  attr_accessor :left, :right
+  attr_reader :data, :left, :right
 
   def initialize(data)
     @data = data
-    @left = nil
-    @right = nil
+    @left
+    @right
   end
 
   def insert(element)
     if element <= data
-      left ? left.insert(element) : self.left = Bst.new(element)
+      insert_left(element)
     else
-      right ? right.insert(element) : self.right = Bst.new(element)
+      insert_right(element)
     end
   end
 
@@ -23,4 +22,15 @@ class Bst
     yield(data)
     right.each(&block) if right
   end
+
+  private
+
+  def insert_left(element)
+    left ? left.insert(element) : @left = Bst.new(element)
+  end
+
+  def insert_right(element)
+    right ? right.insert(element) : @right = Bst.new(element)
+  end
+
 end
