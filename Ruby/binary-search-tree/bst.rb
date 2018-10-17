@@ -4,8 +4,6 @@ class Bst
 
   def initialize(data)
     @data = data
-    @left
-    @right
   end
 
   def insert(element)
