@@ -8,7 +8,7 @@
   "cart": {
     "total": 120,
     "item_count": 2,
-    "cart_items": [
+    "cart_items" [
       { "id": 1, "title": "War and Peace", "price": 50 },
       { "id": 2, "title": "In Search of Lost Time", "price": 70 }
     ]
