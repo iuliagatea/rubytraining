@@ -8,7 +8,11 @@ class Book
   end
 
   def to_hash
-    { 'id' => id, 'title' => title, 'price' => price }
+    {
+      'id' => id,
+      'title' => title,
+      'price' => price
+    }
   end
 
 end
