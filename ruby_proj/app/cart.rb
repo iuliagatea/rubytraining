@@ -17,8 +17,4 @@ class Cart
     items.map(&:to_hash)
   end
 
-  def next_id
-    item_count + 1
-  end
-
 end

@@ -17,12 +17,7 @@ class Bookstore
 
   def add_to_cart(title)
     book = find_by(title)
-    # I don't know with method is better.
-    item = Item.new({ 'id' => cart.next_id, 'title' => book.title, 'price' => book.price} )
-    # item = Item.new
-    # item.id = cart.next_id
-    # item.title = book.title
-    # item.price = book.price
+    item = Item.new(cart, { 'title' => book.title, 'price' => book.price} )
     cart.items << item
   end
 

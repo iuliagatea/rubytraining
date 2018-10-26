@@ -1,10 +1,7 @@
-require_relative 'bookstore'
-
 class Checkout
   attr_reader :books, :cart
 
   def initialize(bookstore)
-    @bookstore = bookstore
     @books = bookstore.books
     @cart = bookstore.cart
   end
