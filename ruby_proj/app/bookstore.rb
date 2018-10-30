@@ -1,5 +1,6 @@
 require_relative 'book'
 require_relative 'cart'
+require_relative 'item'
 
 class Bookstore
   attr_accessor :books, :cart
@@ -15,7 +16,9 @@ class Bookstore
   end
 
   def add_to_cart(title)
-    cart.items << find_by(title)
+    book = find_by(title)
+    item = Item.new(cart.item_count, book)
+    cart.items << item
   end
 
   private

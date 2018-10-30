@@ -13,4 +13,8 @@ class Cart
     items.map(&:price).inject(0, :+)
   end
 
+  def cart_items
+    items.map(&:to_hash)
+  end
+
 end
