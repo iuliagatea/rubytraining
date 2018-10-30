@@ -29,7 +29,7 @@ class Cart
     items.map(&:qty).inject(0, :+)
   end
 
-  def check_item(args = {})
+  def find_item(args = {})
     items.find { |item| item.send(args.keys.first) == args.values.first }
   end
 
