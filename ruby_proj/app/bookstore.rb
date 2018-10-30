@@ -17,7 +17,7 @@ class Bookstore
 
   def add_to_cart(title)
     book = find_by(title)
-    item = Item.new(cart, { 'title' => book.title, 'price' => book.price} )
+    item = Item.new(cart.item_count, book)
     cart.items << item
   end
 

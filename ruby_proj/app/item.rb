@@ -1,14 +1,10 @@
 class Item
   attr_accessor :id, :title, :price
 
-  def initialize(cart, item_details = {})
-    @id = next_id(cart)
-    @title = item_details['title']
-    @price = item_details['price']
-  end
-
-  def next_id(cart)
-    cart.item_count + 1
+  def initialize(items_in_cart, book)
+    @id = items_in_cart + 1
+    @title = book.title
+    @price = book.price
   end
 
   def to_hash
