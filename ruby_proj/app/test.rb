@@ -30,6 +30,14 @@ class BookstoreTest < Minitest::Test
     assert_equal output, Checkout.new(book_store).level3
   end
 
+  def test_output_level4
+    output = JSON.parse(File.read('../level4/output.json'))
+    book_store = Bookstore.new('../level4/data.json')
+    book_store.add_to_cart(title: 'War and Peace')
+    2.times { book_store.add_to_cart(title: 'Animal Farm') }
+    assert_equal output, Checkout.new(book_store).level4
+  end
+
 end
 
 
