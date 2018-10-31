@@ -18,9 +18,7 @@ class Bookstore
   def add_to_cart(title)
     cart_item = cart.find_item(title)
     book = find_by(title)
-    if book.in_stock?
-      add_item_to_cart(cart_item, book)
-    end
+    add_item_to_cart(cart_item, book) if book.in_stock?
   end
 
   private

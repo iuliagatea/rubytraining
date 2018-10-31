@@ -9,12 +9,20 @@ class Cart
     items.count
   end
 
+  def total_with_discount
+    sub_total - discount
+  end
+
   def total
     items.map(&:price).inject(0, :+)
   end
 
-  def total_with_qty
+  def sub_total
     items.map { |item| item.price * item.qty }.inject(0, :+)
+  end
+
+  def discount
+    sub_total > 100 ? 0.1 * sub_total : 0
   end
 
   def cart_items
