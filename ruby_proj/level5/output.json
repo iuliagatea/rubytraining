@@ -9,9 +9,9 @@
     "sub_total": 110,
     "promotion": 11,
     "item_count": 3,
-    "cart_items" [
+    "cart_items": [
       { "id": 1, "title": "War and Peace", "price": 50, "qty": 1 },
-      { "id": 2, "title": "Animal Farm", "price": 30, "qty": 2 },
+      { "id": 2, "title": "Animal Farm", "price": 30, "qty": 2 }
     ]
   }
 }

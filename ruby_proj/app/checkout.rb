@@ -31,7 +31,7 @@ class Checkout
     {
       'books' => books.map(&:to_hash),
       'cart' => {
-        'total' => cart.total_with_qty,
+        'total' => cart.sub_total,
         'item_count' => cart.qty_count,
         'cart_items' => cart.cart_items_with_qty
       }
@@ -42,7 +42,20 @@ class Checkout
     {
       'books' => books.map(&:to_hash_with_stock),
       'cart' => {
-        'total' => cart.total_with_qty,
+        'total' => cart.sub_total,
+        'item_count' => cart.qty_count,
+        'cart_items' => cart.cart_items_with_qty
+      }
+    }
+  end
+
+  def level5
+    {
+      'books' => books.map(&:to_hash_with_stock),
+      'cart' => {
+        'total' => cart.sub_total - cart.discount,
+        'sub_total' => cart.sub_total,
+        'promotion' => cart.discount,
         'item_count' => cart.qty_count,
         'cart_items' => cart.cart_items_with_qty
       }
