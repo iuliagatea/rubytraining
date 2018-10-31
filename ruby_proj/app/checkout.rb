@@ -53,7 +53,7 @@ class Checkout
     {
       'books' => books.map(&:to_hash_with_stock),
       'cart' => {
-        'total' => cart.sub_total - cart.discount,
+        'total' => cart.total_with_discount,
         'sub_total' => cart.sub_total,
         'promotion' => cart.discount,
         'item_count' => cart.qty_count,

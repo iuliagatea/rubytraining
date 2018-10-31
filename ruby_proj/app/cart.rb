@@ -9,6 +9,10 @@ class Cart
     items.count
   end
 
+  def total_with_discount
+    sub_total - discount
+  end
+
   def total
     items.map(&:price).inject(0, :+)
   end
