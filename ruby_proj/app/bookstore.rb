@@ -16,10 +16,10 @@ class Bookstore
   end
 
   def add_to_cart(title)
-    check_item = cart.find_item(title)
+    cart_item = cart.find_item(title)
     book = find_by(title)
-    if book.stock.nil? || book.stock > 0
-      add_item_to_cart(check_item, book)
+    if book.in_stock?
+      add_item_to_cart(cart_item, book)
     end
   end
 
@@ -29,12 +29,12 @@ class Bookstore
     books.find { |book| book.send(args.keys.first) == args.values.first }
   end
 
-  def add_item_to_cart(check_item, book)
-    if check_item.nil?
+  def add_item_to_cart(cart_item, book)
+    if cart_item.nil?
       item = Item.new(cart.item_count, book)
       cart.items << item
     else
-      check_item.qty += 1
+      cart_item.qty += 1
     end
     book.stock -= 1 if book.stock
   end

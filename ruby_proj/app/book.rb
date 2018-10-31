@@ -20,4 +20,8 @@ class Book
     to_hash.merge({ 'stock' => stock })
   end
 
+  def in_stock?
+    stock.nil? || stock > 0
+  end
+
 end
