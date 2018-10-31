@@ -17,13 +17,14 @@ class Bookstore
 
   def add_to_cart(title)
     check_item = cart.find_item(title)
+    book = find_by(title)
     if check_item.nil?
-      book = find_by(title)
       item = Item.new(cart.item_count, book)
       cart.items << item
     else
       check_item.qty += 1
     end
+    book.stock -= 1 if book.stock
   end
 
   private

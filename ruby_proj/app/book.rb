@@ -1,10 +1,11 @@
 class Book
-  attr_accessor :id, :title, :price
+  attr_accessor :id, :title, :price, :stock
 
   def initialize(book_details = {})
     @id = book_details['id']
     @title = book_details['title']
     @price = book_details['price']
+    @stock = book_details['stock']
   end
 
   def to_hash
@@ -13,6 +14,10 @@ class Book
       'title' => title,
       'price' => price
     }
+  end
+
+  def to_hash_with_stock
+    to_hash.merge({ 'stock' => stock })
   end
 
 end
