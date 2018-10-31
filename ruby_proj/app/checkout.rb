@@ -61,4 +61,5 @@ class Checkout
       }
     }
   end
+
 end

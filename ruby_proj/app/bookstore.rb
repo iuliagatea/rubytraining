@@ -21,6 +21,13 @@ class Bookstore
     add_item_to_cart(cart_item, book) if book.in_stock?
   end
 
+  def remove_from_cart(title)
+    cart_item = cart.find_item(title)
+    book = find_by(title)
+    cart.items.delete_if { |item| item == cart_item }
+    book.stock += cart_item.qty
+  end
+
   private
 
   def find_by(args = {})

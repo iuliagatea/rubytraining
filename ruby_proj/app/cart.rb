@@ -22,7 +22,13 @@ class Cart
   end
 
   def discount
-    sub_total > 100 ? 0.1 * sub_total : 0
+    if sub_total > 100
+      promotion = 0.1 * sub_total
+      promotion = promotion.to_i if promotion == promotion.to_i
+      promotion
+    else
+      0
+    end
   end
 
   def cart_items
