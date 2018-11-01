@@ -24,4 +24,12 @@ class Book
     stock.nil? || stock > 0
   end
 
+  def increment_stock(qty)
+    self.stock += qty
+  end
+
+  def decrement_stock(qty)
+    self.stock -= qty
+  end
+
 end
