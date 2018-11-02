@@ -28,7 +28,7 @@ class Book
     self.stock += qty
   end
 
-  def decrement_stock(qty)
+  def decrement_stock(qty = 1)
     self.stock -= qty
   end
 

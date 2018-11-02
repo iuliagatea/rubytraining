@@ -47,8 +47,9 @@ class Cart
     items.find { |item| item.send(args.keys.first) == args.values.first }
   end
 
-  def remove_item(cart_item)
-    items.delete_if { |item| item == cart_item }
+  def remove_item(args = {})
+    cart_item = find_item(args)
+    cart_item.qty if items.delete_if { |item| item == cart_item }
   end
 
 end

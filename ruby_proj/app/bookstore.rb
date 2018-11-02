@@ -23,10 +23,9 @@ class Bookstore
   end
 
   def remove_from_cart(title)
-    cart_item = cart.find_item(title)
-    cart.remove_item(cart_item)
+    restore_qty = cart.remove_item(title)
     book = find_by(title)
-    book.increment_stock(cart_item.qty) if book.stock
+    book.increment_stock(restore_qty) if restore_qty
   end
 
   private
@@ -42,7 +41,7 @@ class Bookstore
     else
       cart_item.qty += 1
     end
-    book.decrement_stock(1) if book.stock
+    book.decrement_stock if book.stock
   end
 
 end
