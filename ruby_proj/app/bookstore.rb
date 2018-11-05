@@ -1,6 +1,7 @@
 require_relative 'book'
 require_relative 'cart'
 require_relative 'item'
+require 'byebug'
 
 class Bookstore
   attr_accessor :books, :cart
@@ -21,6 +22,12 @@ class Bookstore
     add_item_to_cart(cart_item, book) if book.in_stock?
   end
 
+  def remove_from_cart(title)
+    restore_qty = cart.remove_item(title)
+    book = find_by(title)
+    book.increment_stock(restore_qty) if restore_qty
+  end
+
   private
 
   def find_by(args = {})
@@ -34,7 +41,7 @@ class Bookstore
     else
       cart_item.qty += 1
     end
-    book.stock -= 1 if book.stock
+    book.decrement_stock if book.stock
   end
 
 end

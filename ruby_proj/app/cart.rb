@@ -22,7 +22,13 @@ class Cart
   end
 
   def discount
-    sub_total > 100 ? 0.1 * sub_total : 0
+    if sub_total > 100
+      promotion = 0.1 * sub_total
+      promotion = promotion.to_i if promotion == promotion.to_i
+      promotion
+    else
+      0
+    end
   end
 
   def cart_items
@@ -39,6 +45,11 @@ class Cart
 
   def find_item(args = {})
     items.find { |item| item.send(args.keys.first) == args.values.first }
+  end
+
+  def remove_item(args = {})
+    cart_item = find_item(args)
+    cart_item.qty if items.delete_if { |item| item == cart_item }
   end
 
 end
